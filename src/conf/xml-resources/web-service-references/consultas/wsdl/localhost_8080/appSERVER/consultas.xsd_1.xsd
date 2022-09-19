@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://modelo/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://modelo/">
+
+<xs:element name="crearNuevo" type="tns:crearNuevo" />
+
+<xs:element name="crearNuevoLibro" type="tns:crearNuevoLibro" />
+
+<xs:element name="crearNuevoLibroResponse" type="tns:crearNuevoLibroResponse" />
+
+<xs:element name="crearNuevoResponse" type="tns:crearNuevoResponse" />
+
+<xs:element name="eliminar" type="tns:eliminar" />
+
+<xs:element name="eliminarResponse" type="tns:eliminarResponse" />
+
+<xs:element name="generar_prestamo" type="tns:generar_prestamo" />
+
+<xs:element name="generar_prestamoResponse" type="tns:generar_prestamoResponse" />
+
+<xs:element name="listarCarreras" type="tns:listarCarreras" />
+
+<xs:element name="listarCarrerasResponse" type="tns:listarCarrerasResponse" />
+
+<xs:element name="listarLibro" type="tns:listarLibro" />
+
+<xs:element name="listarLibroResponse" type="tns:listarLibroResponse" />
+
+<xs:element name="listarUsuarios" type="tns:listarUsuarios" />
+
+<xs:element name="listarUsuariosResponse" type="tns:listarUsuariosResponse" />
+
+<xs:element name="login" type="tns:login" />
+
+<xs:element name="loginResponse" type="tns:loginResponse" />
+
+<xs:element name="usuariosporId" type="tns:usuariosporId" />
+
+<xs:element name="usuariosporIdResponse" type="tns:usuariosporIdResponse" />
+
+<xs:complexType name="login">
+<xs:sequence>
+<xs:element name="correo" type="xs:string" minOccurs="0" />
+<xs:element name="clave" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminar">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarUsuarios">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="listarUsuariosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usuario">
+<xs:sequence>
+<xs:element name="cedula" type="xs:int" />
+<xs:element name="correo" type="xs:string" minOccurs="0" />
+<xs:element name="id" type="xs:int" />
+<xs:element name="idCarrera" type="xs:int" />
+<xs:element name="idFormacion" type="xs:int" />
+<xs:element name="idNivelA" type="xs:int" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="tipoUsuario" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="generar_prestamo">
+<xs:sequence>
+<xs:element name="pre" type="tns:crearPrestamo" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearPrestamo">
+<xs:sequence>
+<xs:element name="cedula" type="xs:int" />
+<xs:element name="fin" type="xs:string" minOccurs="0" />
+<xs:element name="idlibro" type="xs:int" />
+<xs:element name="idusuario" type="xs:int" />
+<xs:element name="inicio" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="generar_prestamoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:resultadoPrestamo" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resultadoPrestamo">
+<xs:complexContent>
+<xs:extension base="tns:usuario">
+<xs:sequence>
+<xs:element name="msj" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="crearNuevo">
+<xs:sequence>
+<xs:element name="usu" type="tns:usuario" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearNuevoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usuariosporId">
+<xs:sequence>
+<xs:element name="id" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usuariosporIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearNuevoLibro">
+<xs:sequence>
+<xs:element name="lib" type="tns:libro" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="libro">
+<xs:sequence>
+<xs:element name="anioPublic" type="xs:string" minOccurs="0" />
+<xs:element name="autor" type="xs:string" minOccurs="0" />
+<xs:element name="cd" type="xs:string" minOccurs="0" />
+<xs:element name="ciudad" type="xs:string" minOccurs="0" />
+<xs:element name="edicion" type="xs:string" minOccurs="0" />
+<xs:element name="editorial" type="xs:string" minOccurs="0" />
+<xs:element name="ejemplatres" type="xs:int" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="idLibro" type="xs:int" />
+<xs:element name="idcarreraLibro" type="xs:int" />
+<xs:element name="isbn" type="xs:string" minOccurs="0" />
+<xs:element name="paginas" type="xs:int" />
+<xs:element name="pais" type="xs:string" minOccurs="0" />
+<xs:element name="tipo" type="xs:string" minOccurs="0" />
+<xs:element name="titulo" type="xs:string" minOccurs="0" />
+<xs:element name="vigencia" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearNuevoLibroResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarLibro">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="listarLibroResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:libro" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarCarreras">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="listarCarrerasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:carreraLibro" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="carreraLibro">
+<xs:sequence>
+<xs:element name="carrera" type="xs:string" minOccurs="0" />
+<xs:element name="idcarrera" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
